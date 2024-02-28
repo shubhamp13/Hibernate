@@ -12,7 +12,8 @@ public class App
         System.out.println("2.Update The Student Information");
         System.out.println("3.Deleter The Student Information");
         System.out.println("4 Display The Student Information");
-        System.out.println("5 Exit");
+        System.out.println("5 Display All the records Present");
+        System.out.println("6 Exit");
         int ch=Integer.parseInt(bufferedReader.readLine());
         StudentDao studentDao=new StudentDao();
         switch (ch)
@@ -64,10 +65,16 @@ public class App
             break;
             case 5:
             {
-                System.out.println("Thank you!!!!!!!");
+                 studentDao.display();
+            }
+            break;
+            case 6:
+            {
+                System.out.println("Thanks!!!!!!!!!!!");
             }
             break;
         }
+        bufferedReader.close();
 
     }
 }
