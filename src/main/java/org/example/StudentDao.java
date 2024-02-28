@@ -14,6 +14,11 @@ public class StudentDao
     public void saveUser(Student student)
     {
         entityManager.getTransaction().begin();
+        if(entityManager.find(Student.class,student.getRollNo()).equals(student))
+        {
+            System.out.println("Already present");
+            return;
+        }
         entityManager.persist(student);
         entityManager.getTransaction().commit();
         entityManager.close();
@@ -26,7 +31,7 @@ public class StudentDao
         if(student!=null)
         {
             student.setName(name);
-            entityManager.persist(student);
+            entityManager.merge(student);
             entityManager.getTransaction().commit();
             System.out.println("Data Updated");
 
@@ -83,7 +88,5 @@ public class StudentDao
         {
             System.out.println(student);
         }
-
-
     }
 }

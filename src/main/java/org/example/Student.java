@@ -57,4 +57,11 @@ public class Student
                 ", phNo='" + phNo + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        Student s=(Student) obj;
+        return s.rollNo==rollNo;
+    }
 }
